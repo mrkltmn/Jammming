@@ -8,8 +8,15 @@ async function searchSongs(searchTerm) {
         )
     });
 
+    return filteredResults.slice(0, 25).map(item => ({
+        title: item.title,
+        artist: item.artist,
+        album: item.collectionName,
+        genre: item.primaryGenreName,
+        art: item.artworkURL100
+    }));
 
-    console.log(filteredResults);
+    //console.log(filteredResults);
 }
 
 export default searchSongs;
