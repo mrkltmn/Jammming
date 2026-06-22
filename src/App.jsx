@@ -12,19 +12,20 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1>Jammmer</h1>
-      <div>
+    <div className='app'>
+      <h1 id='mainHeading'>Jammmer</h1>
+      <div className='searchBar'>
         <SearchBar />
-        <SearchResults />
       </div>
-      <div>
-        <Tracklist />
+      <div className='songChooser'>
+        <div className='searchResults'>
+          <SearchResults />
+        </div>
+        <div className='playlist'>
+          <Playlist />
+        </div>
       </div>
-      <div>
-        <Playlist />
-      </div>
-    </>
+    </div>
   )
 }
 
