@@ -5,21 +5,29 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import SearchBar from './components/SearchBar'
 import SearchResults from './components/SearchResults'
-import Tracklist from './components/Tracklist'
 import Playlist from './components/Playlist'
+import searchSongs from './components/searchSongsFunction'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [search, setSearch] = useState('');
+  const [results, setResults] = useState([]);
+  const [playlist, setPlaylist] = useState([]);
+
+  async function handleSearch(e) {
+    e.preventDefault();
+    const results = await searchSongs(search);
+    setResults(results);
+  };
 
   return (
     <div className='app'>
       <h1 id='mainHeading'>Jammmer</h1>
       <div className='searchBar'>
-        <SearchBar />
+        <SearchBar search={search} setSearch={setSearch} onSearch={handleSearch} />
       </div>
       <div className='songChooser'>
         <div className='searchResults'>
-          <SearchResults />
+          <SearchResults results={results} />
         </div>
         <div className='playlist'>
           <Playlist />

@@ -9,11 +9,11 @@ async function searchSongs(searchTerm) {
     });
 
     return filteredResults.slice(0, 25).map(item => ({
-        title: item.title,
-        artist: item.artist,
+        title: item.trackName,
+        artist: item.artistName,
         album: item.collectionName,
         genre: item.primaryGenreName,
-        art: item.artworkURL100
+        art: item.artworkUrl100
     }));
 
     //console.log(filteredResults);

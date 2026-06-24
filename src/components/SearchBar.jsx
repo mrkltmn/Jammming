@@ -1,13 +1,13 @@
 import React from 'react';
-import SearchButton from './SearchButton';
 
-function SearchBar() {
+function SearchBar({ search, setSearch, onSearch }) {
+
     return (
-        <form>
+        <form onSubmit={onSearch}>
             <label> Search:
-                <input id='searchBar' type='text' />
+                <input id='searchBar' type='text' value={search} onChange={e => setSearch(e.target.value)} />
             </label>
-            <SearchButton />
+            <button type='submit'>Search</button>
         </form>
     )
 }
