@@ -9,7 +9,7 @@ async function searchSongs(searchTerm) {
     });
 
     return filteredResults.slice(0, 25).map(item => ({
-        key: item.trackId,
+        id: item.trackId,
         title: item.trackName,
         artist: item.artistName,
         album: item.collectionName,

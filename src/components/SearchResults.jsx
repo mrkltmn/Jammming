@@ -6,7 +6,7 @@ function SearchResults({ results }) {
         <>
             <h2>SearchResults</h2>
             {results.map(track => {
-                return <Track key={track.key} track={track} />
+                return <Track id={track.key} track={track} />
             })}
         </>
     )
